@@ -33,14 +33,17 @@ const users = [
     },
   ];
 
+  const favoriteList = {}
 
-  let suma= 0
-  let count = 0
   for (const user of users){
-    for (sound in user.favoritesSounds){
-            suma += user.favoritesSounds[sound].volume
-            count++
-
+    for (sounds in user.favoritesSounds){
+        if(favoriteList[sounds]){
+            favoriteList[sounds] += 1
+        }
+        else{
+            favoriteList[sounds] = 1
+        }
     }
   }
-  console.log(suma/count)
+
+  console.log(favoriteList)
